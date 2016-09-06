@@ -1,6 +1,5 @@
-# nodetest
-study in this website:
-http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+## 说明
+本项目是学习node的一个基础练习项目，包含练习过得各个小demo.小demo成型后，会独立出来~
 
-when connect the mongo throws errors like this:"[Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND'"
-find the answer in http://stackoverflow.com/questions/28651028/cannot-find-module-build-release-bson-code-module-not-found-js-bson
+* fileOperates----文件操作相关的练习
+* node_web-------->基于express的一个node后台web程序
