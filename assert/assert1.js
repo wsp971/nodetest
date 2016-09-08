@@ -11,7 +11,7 @@ todo.deleteALL();
 console.log(todo.getCounts());
 // var testValue="0";
 // 用断言模块来做一个简单的单元测试
-// 
+
 
 assert.equal(todo.getCounts(),0,"todo长度应该为0");
 
