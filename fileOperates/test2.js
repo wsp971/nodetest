@@ -36,6 +36,7 @@ function prints(message){
     console.log("print finish");  
 }
 
+//判断文件夹是否存在，不存在创建之
 
 function exists(path,callback){
     fs.exists(path,function(exists){
@@ -73,9 +74,6 @@ function exists1(src,dst,callback){
     });
 }
 
-
-
-
 // 复制源文件夹的内容到目的文件夹
 function copyFolder(src,dst){
     exists(dst,function(){
@@ -96,7 +94,7 @@ function copyFolder(src,dst){
                             var readable = fs.createReadStream( srcPath );
                             var writable = fs.createWriteStream( destPath ); 
                             readable.pipe(writable);
-                            fileTohash(destPath);
+                            // fileTohash(destPath);
                         }
                         if(stats.isDirectory()){
                             console.log(srcPath+" is a direactory");
@@ -128,7 +126,7 @@ function fileTohash(file){
 // fileTohash(__dirname+"/test1.js");
 
 // 测试复制文件夹功能
-copyFolder(__dirname+"/test",__dirname+"/test3");
+copyFolder(__dirname+"/node_modules",__dirname+"/test4");
 
 
 // fs.rename('/tmp/hello', '/tmp/world', function (err) {
