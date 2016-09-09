@@ -94,7 +94,7 @@ function copyFolder(src,dst){
                             var readable = fs.createReadStream( srcPath );
                             var writable = fs.createWriteStream( destPath ); 
                             readable.pipe(writable);
-                            // fileTohash(destPath);
+                            fileTohash(destPath);
                         }
                         if(stats.isDirectory()){
                             console.log(srcPath+" is a direactory");
@@ -111,22 +111,22 @@ function copyFolder(src,dst){
 function fileTohash(file){
     file=path.normalize(file);
     fs.readFile(file,{encoding:"utf-8"},function(err,data){
-        var hash=fnv.hash(data);
+        var hash=fnv.hash(data,32);
         var hashstr=hash.hex();
         var index=file.lastIndexOf("/");
         var fileName=file.slice(index+1);
         var arr=fileName.split(".");
-        arr.splice(1,0,"_",hashstr);
+        arr.splice(1,0,"_",hashstr,".");
         var str=arr.join("");
         fs.rename(file,str);
     });
 }
 
 
-// fileTohash(__dirname+"/test1.js");
+fileTohash(__dirname+"/test1.js");
 
 // 测试复制文件夹功能
-copyFolder(__dirname+"/node_modules",__dirname+"/test4");
+// copyFolder(__dirname+"/node_modules",__dirname+"/test1");
 
 
 // fs.rename('/tmp/hello', '/tmp/world', function (err) {
