@@ -114,10 +114,15 @@ console.log(util.isError({}));
 
 
 // 可以用 util.inherits 实现继承
+// 只能继承父类原型的方法，构造函数内的方法不可以继承。
+
 
 function  people(name,age){
     this.name=name;
     this.age=age;
+    this.sayHello=function(){
+        console.log("hello this is a function defined in constructor");
+    }
 }
 people.prototype={
     getName:function(){
@@ -135,16 +140,28 @@ people.prototype={
 }
 
 function Student(name,age,klass){
-    people.call(this);
+    people.call(this,name,age);
     this.klass=klass;
 };
 
 
 
-var wsp=new Student("wsp",25,"大");
-
-
+var wsp=new people()
 
 util.inherits(Student,people);
+var wsp=new Student("wsp",25,"计算机1004");
+
+
+
+// console.log(util.inspect(wsp));
+// console.log(util.inspect(wsp.__proto__));
 
 console.log(wsp.getName());
+console.log(wsp.getAge())
+/////////////////////
+// wsp.sayHello(); ///////////////////////
+// 
+// Student.super_ 指向 继承的function people
+console.dir(Student.super_);
+
+console.log(Student.super_===people)
