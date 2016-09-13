@@ -38,3 +38,4 @@ console.log(url.resolve("http://example.com","/wsp"));
 console.log(url.resolve("http://example.com/wsp","/one/two"));
 console.log(url.resolve("http://example.com/wsp","/one/two.html"));
 console.log(url.resolve("http://example.com/wsp","one/two.html"));
+
