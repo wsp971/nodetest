@@ -19,7 +19,7 @@ Promise.all([promise1,promise2]).then(function(value){
 })
 
 
-// promise.all 可以等待 若干个promise 同事同时返回时，再依此调用回调函数。
+// promise.all 可以等待 若干个promise 同时返回时，再依此调用回调函数。
 
 
 function timerPromise(delay){
@@ -31,11 +31,12 @@ function timerPromise(delay){
 };
 
 
+// promise.race 正好相反，只要有一个返回就停止执行后面的promise then 方法了。。
+
 Promise.race([
     timerPromise(1),
     timerPromise(64),
     timerPromise(128)
     ]).then(function(value){
-
         console.log(value);
     })
